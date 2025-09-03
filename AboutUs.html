@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TravelBloom - About Us</title>
+  <style>
+    /* ===== Reset and Basic Styling ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* ===== Navigation Bar ===== */
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      margin-left: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #00e5ff;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin-left: 35px;
+      padding: 0;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      color: #00e5ff;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+    }
+    .search-bar input {
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .search-bar button {
+      margin-left: 5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #00e5ff;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .search-bar button:hover {
+      background-color: #00acc1;
+    }
+
+    /* ===== Hero Section (About Us BG) ===== */
+    .hero {
+      height: 100vh;
+      background: url("https://previews.123rf.com/images/oneinchpunch/oneinchpunch1809/oneinchpunch180900235/107985814-group-of-friends-having-a-picnic-at-the-beach-happy-young-people-on-a-summer-vacation-at-the-beach.jpg") no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 100px 20px 20px;
+      text-align: center;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6); /* dark overlay */
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin-top: 60px;
+    }
+    .hero h1 {
+      font-size: 50px;
+      margin: 0 0 20px;
+      font-weight: bold;
+    }
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* ===== Team Section ===== */
+    .team {
+      background-color: #f9f9f9;
+      color: #000;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .team h2 {
+      color: #00796b;
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
+    .team-members {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .member {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 260px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .member:hover {
+      transform: translateY(-10px);
+    }
+    .member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    .member h3 {
+      margin: 10px 0 5px;
+      font-size: 20px;
+      color: #00796b;
+    }
+    .member h4 {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #444;
+      font-weight: normal;
+    }
+    .member p {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.4;
+    }
+    .member button {
+      margin-top: 15px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #00e5ff;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .member button:hover {
+      background-color: #00acc1;
+    }
+
+    /* ===== Social Icons ===== */
+    .social-icons {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 20;
+    }
+    .social-icons a img {
+      width: 28px;
+      height: 28px;
+      transition: transform 0.3s;
+    }
+    .social-icons a img:hover {
+      transform: scale(1.2);
+    }
+    /* ===== Company History ===== */
+.history {
+  background-color: #ffffff;
+  color: #333;
+  padding: 60px 20px;
+  text-align: center;
+}
+.history h2 {
+  color: #00796b;
+  margin-bottom: 30px;
+  font-size: 36px;
+}
+.history-content {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* ===== Location ===== */
+.location {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 60px 20px;
+  text-align: center;
+}
+.location h2 {
+  color: #00796b;
+  margin-bottom: 30px;
+  font-size: 36px;
+}
+.location-content {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation Bar ===== -->
+  <header>
+    <nav>
+      <div class="logo">TravelBloom</div>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="AboutUs.html">About Us</a></li>
+        <li><a href="ContactUs.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>ABOUT US</h1>
+      <p>Welcome to TravelBloom! We are a team of passionate individuals dedicated to providing excellent services and products to our customers.</p>
+      <p>Our mission is to provide the best experience for people traveling to different destinations around the world.</p>
+      <p>Our values include integrity, innovation, customer satisfaction, and teamwork. We believe in putting our customers first and working together to achieve our goals.</p>
+      <p>Feel free to explore our website to learn more about what we offer!</p>
+    </div>
+  </section>
+
+  <!-- ===== Team Section ===== -->
+  <section class="team">
+    <h2>Our Team</h2>
+    <div class="team-members">
+      <div class="member">
+        <img src="https://cdn-icons-png.flaticon.com/512/18/18148.png" alt="John Doe">
+        <h3>John Doe</h3>
+        <h4>CEO</h4>
+        <p>John is responsible for overseeing overall company strategy, partnerships, and ensuring customer satisfaction.</p>
+        <button>Know More</button>
+      </div>
+      <div class="member">
+        <img src="https://cdn-icons-png.flaticon.com/512/18/18148.png" alt="Celina Thomas">
+        <h3>Celina Thomas</h3>
+        <h4>Team Lead</h4>
+        <p>Celina leads the project teams, ensures timely delivery, and manages communication between departments.</p>
+        <button>Know More</button>
+      </div>
+      <div class="member">
+        <img src="https://cdn-icons-png.flaticon.com/512/18/18148.png" alt="Mike Tyson">
+        <h3>Mike Tyson</h3>
+        <h4>Delivery Head</h4>
+        <p>Mike is in charge of operations, logistics, and making sure clients receive services on time with top quality.</p>
+        <button>Know More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Social Icons ===== -->
+  <div class="social-icons">
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+  </div>
+
+    <!-- ===== Company History Section ===== -->
+  <section class="history">
+    <h2>Our History</h2>
+    <div class="history-content">
+      <p>Founded in 2010, TravelBloom started as a small travel consulting firm with a vision to make traveling easier and more enjoyable for everyone. Over the years, we have expanded into a global travel company with partners across multiple continents.</p>
+      <p>From arranging small group trips to managing large-scale corporate travel plans, our journey has always been guided by a passion for exploring the world and delivering the best experiences to our customers.</p>
+      <p>Today, TravelBloom is proud to have served thousands of happy travelers, continuously growing and adapting to new technologies and customer needs.</p>
+    </div>
+  </section>
+
+  <!-- ===== Location Section ===== -->
+  <section class="location">
+    <h2>Our Location</h2>
+    <div class="location-content">
+      <p>You can find us at our headquarters located in:</p>
+      <p><strong>TravelBloom HQ</strong><br>
+      123 Explorer Avenue,<br>
+      Karachi, Pakistan</p>
+      <p>We welcome you to visit our office or contact us for any inquiries. Our team is always ready to assist you.</p>
+
+      <!-- Google Maps Embed -->
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.508021548635!2d67.0011364753076!3d24.861462377934503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e996f9a9d81%3A0xdeb50b6fba2cde4b!2sKarachi%20Pakistan!5e0!3m2!1sen!2s!4v1694600534567!5m2!1sen!2s" 
+        width="100%" 
+        height="300" 
+        style="border:0; border-radius:10px; margin-top:20px;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+
+</body>
+</html>

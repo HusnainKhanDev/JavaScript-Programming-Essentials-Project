@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Explorer - Home</title>
+  <style>
+    /* ===== Reset and Basic Styling ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* ===== Navigation Bar ===== */
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding-top: 10px ;
+      padding-bottom: 10px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      margin-left: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #00e5ff;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 35px;
+      padding: 0;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      color: #00e5ff;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-right: 5px;
+    }
+    .search-bar input {
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .search-bar button {
+      margin-left: 5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #00e5ff;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .search-bar button:hover {
+      background-color: #00acc1;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      height: 90vh;
+      background: url("https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?cs=srgb&dl=pexels-apasaric-1285625.jpg&fm=jpg") no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 60px;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5); /* dark overlay */
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 500px;
+    }
+    .hero h1 {
+      font-size: 60px;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .hero p {
+      margin: 20px 0;
+      font-size: 18px;
+      color: #ddd;
+    }
+    .hero button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #00e5ff;
+      color: black;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .hero button:hover {
+      background-color: #00acc1;
+    }
+
+    /* ===== Results Section ===== */
+    .results {
+      background: #fff;
+      color: #000;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .results h2 {
+      color: #00796b;
+      margin-bottom: 20px;
+    }
+    .result-item {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px auto;
+      max-width: 600px;
+      background-color: #f9f9f9;
+    }
+    .result-item img {
+      width: 100%;
+      max-height: 200px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .time {
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation Bar ===== -->
+  <header>
+    <nav>
+      <div class="logo">TravelBloom</div>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="AboutUs.html">About Us</a></li>
+        <li><a href="ContactUs.html">Contact Us</a></li>
+      </ul>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Enter a destination or keyword">
+        <button onclick="searchDestination()">Search</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>EXPLORE<br>DREAM<br>DESTINATION</h1>
+      <p>It encourages exploration of unfamiliar territories, embracing diverse cultures and landscapes, while pursuing the ideal destination that captivates the heart and ignites a sense of wonder.</p>
+      <button onclick="document.getElementById('results').scrollIntoView({behavior:'smooth'})">BOOK NOW</button>
+    </div>
+  </section>
+
+  <!-- ===== Results Section ===== -->
+  <section class="results" id="results"></section>
+
+  <!-- ===== Internal JavaScript ===== -->
+  <script>
+    function searchDestination() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const resultsDiv = document.getElementById("results");
+      resultsDiv.innerHTML = ""; // clear old results
+
+      if (query.includes("beach")) {
+        resultsDiv.innerHTML = `
+          <h2>Beach Recommendations</h2>
+          <div class="result-item">
+            <h3>Bondi Beach, Australia</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Bondi_Beach.jpg" alt="Bondi Beach">
+            <p>Famous for surfing and golden sands.</p>
+          </div>
+          <div class="result-item">
+            <h3>Copacabana Beach, Brazil</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Copacabana_Beach_Rio_de_Janeiro.jpg" alt="Copacabana Beach">
+            <p>A lively beach with vibrant nightlife.</p>
+          </div>
+        `;
+      } else if (query.includes("temple")) {
+        resultsDiv.innerHTML = `
+          <h2>Temple Recommendations</h2>
+          <div class="result-item">
+            <h3>Angkor Wat, Cambodia</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Angkor_Wat_temple.jpg" alt="Angkor Wat">
+            <p>One of the largest religious monuments in the world.</p>
+          </div>
+          <div class="result-item">
+            <h3>Kashi Vishwanath Temple, India</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Kashi_Vishwanath_Temple.jpg" alt="Kashi Vishwanath">
+            <p>Dedicated to Lord Shiva and located in Varanasi.</p>
+          </div>
+        `;
+      } else if (query.includes("toronto")) {
+        const localTime = new Date().toLocaleTimeString("en-US", { timeZone: "America/Toronto" });
+        resultsDiv.innerHTML = `
+          <h2>Toronto, Canada</h2>
+          <div class="result-item">
+            <h3>CN Tower</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/CN_Tower_Toronto.jpg" alt="CN Tower">
+            <p>One of the tallest towers in the world offering panoramic views.</p>
+          </div>
+          <div class="result-item">
+            <h3>Royal Ontario Museum</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Royal_Ontario_Museum.jpg" alt="Royal Ontario Museum">
+            <p>A major museum for world culture and natural history.</p>
+          </div>
+          <p class="time">Current local time: ${localTime}</p>
+        `;
+      } else {
+        resultsDiv.innerHTML = `<p>No results found. Try searching "beach", "temple", or "Toronto".</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
