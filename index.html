@@ -5,21 +5,26 @@
   <title>Travel Explorer - Home</title>
   <style>
     /* ===== Reset and Basic Styling ===== */
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: white;
+      background-color: #f5f5f5;
     }
 
     /* ===== Navigation Bar ===== */
     header {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding-top: 10px ;
-      padding-bottom: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 15px 40px;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 10;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
     nav {
       display: flex;
@@ -27,26 +32,21 @@
       align-items: center;
     }
     nav .logo {
-      margin-left: 20px;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: bold;
       color: #00e5ff;
+      letter-spacing: 1px;
     }
     nav ul {
       list-style: none;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 35px;
-      padding: 0;
-    }
-    nav ul li {
-      margin: 0 15px;
+      gap: 25px;
     }
     nav ul li a {
       text-decoration: none;
       color: white;
-      font-weight: bold;
+      font-weight: 500;
+      transition: color 0.3s;
     }
     nav ul li a:hover {
       color: #00e5ff;
@@ -54,36 +54,37 @@
     .search-bar {
       display: flex;
       align-items: center;
-      margin-right: 5px;
+      gap: 8px;
     }
     .search-bar input {
-      padding: 8px;
-      border: none;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-    .search-bar button {
-      margin-left: 5px;
       padding: 8px 12px;
       border: none;
-      border-radius: 4px;
-      background-color: #00e5ff;
+      border-radius: 20px;
+      font-size: 14px;
+      outline: none;
+    }
+    .search-bar button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 20px;
+      background: #00e5ff;
       color: black;
       cursor: pointer;
       font-weight: bold;
+      transition: background 0.3s;
     }
     .search-bar button:hover {
-      background-color: #00acc1;
+      background: #00acc1;
     }
 
     /* ===== Hero Section ===== */
     .hero {
-      height: 90vh;
-      background: url("https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?cs=srgb&dl=pexels-apasaric-1285625.jpg&fm=jpg") no-repeat center center/cover;
+      height: 100vh;
+      background: url("https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg") no-repeat center center/cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-left: 60px;
+      padding-left: 80px;
       position: relative;
     }
     .hero::after {
@@ -91,67 +92,136 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5); /* dark overlay */
+      background: rgba(0,0,0,0.55); /* dark overlay */
       z-index: 1;
     }
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 500px;
+      max-width: 600px;
     }
     .hero h1 {
-      font-size: 60px;
-      margin: 0;
+      font-size: 70px;
+      margin-bottom: 20px;
       line-height: 1.2;
+      color: #00e5ff;
     }
     .hero p {
-      margin: 20px 0;
-      font-size: 18px;
-      color: #ddd;
+      font-size: 20px;
+      color: #f1f1f1;
+      margin-bottom: 30px;
     }
     .hero button {
-      padding: 12px 20px;
+      padding: 14px 24px;
       border: none;
-      border-radius: 5px;
-      background-color: #00e5ff;
+      border-radius: 30px;
+      background: #00e5ff;
       color: black;
-      font-size: 16px;
+      font-size: 18px;
       cursor: pointer;
       font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
     }
     .hero button:hover {
-      background-color: #00acc1;
+      background: #00acc1;
+      transform: scale(1.05);
     }
 
     /* ===== Results Section ===== */
     .results {
       background: #fff;
       color: #000;
-      padding: 50px 20px;
+      padding: 60px 20px;
       text-align: center;
     }
     .results h2 {
+      font-size: 28px;
       color: #00796b;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     .result-item {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 15px auto;
-      max-width: 600px;
-      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 700px;
+      background: #fafafa;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .result-item img {
       width: 100%;
-      max-height: 200px;
+      max-height: 250px;
       border-radius: 10px;
-      margin-top: 10px;
+      margin-top: 15px;
+      object-fit: cover;
     }
     .time {
       font-size: 14px;
       color: #555;
-      margin-top: 10px;
+      margin-top: 12px;
+    }
+
+    /* ===== Vacation Destinations ===== */
+    .vacations {
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      padding: 80px 20px;
+      text-align: center;
+      color: #000;
+    }
+    .vacations h2 {
+      font-size: 36px;
+      color: #00796b;
+      margin-bottom: 50px;
+    }
+    .vacation-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 35px;
+    }
+    .vacation-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      width: 300px;
+      padding: 20px;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .vacation-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .vacation-card img {
+      width: 100%;
+      border-radius: 12px;
+      height: 190px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .vacation-card h3 {
+      font-size: 22px;
+      margin: 10px 0;
+      color: #00796b;
+    }
+    .vacation-card p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .vacation-card a {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #00e5ff;
+      color: black;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .vacation-card a:hover {
+      background: #00acc1;
     }
   </style>
 </head>
@@ -162,7 +232,7 @@
     <nav>
       <div class="logo">TravelBloom</div>
       <ul>
-        <li><a href="Home.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="AboutUs.html">About Us</a></li>
         <li><a href="ContactUs.html">Contact Us</a></li>
       </ul>
@@ -177,13 +247,40 @@
   <section class="hero">
     <div class="hero-content">
       <h1>EXPLORE<br>DREAM<br>DESTINATION</h1>
-      <p>It encourages exploration of unfamiliar territories, embracing diverse cultures and landscapes, while pursuing the ideal destination that captivates the heart and ignites a sense of wonder.</p>
+      <p>Discover breathtaking locations, embrace diverse cultures, and find your dream destination that captivates your heart.</p>
       <button onclick="document.getElementById('results').scrollIntoView({behavior:'smooth'})">BOOK NOW</button>
     </div>
   </section>
 
   <!-- ===== Results Section ===== -->
   <section class="results" id="results"></section>
+
+  <!-- ===== Vacation Destinations Section ===== -->
+  <section class="vacations">
+    <h2>Vacation Destinations</h2>
+    <div class="vacation-cards">
+      <div class="vacation-card">
+        <img src="https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg" alt="Paris">
+        <h3>Paris, France</h3>
+        <p>The city of lights, famous for its art, fashion, and the iconic Eiffel Tower.</p>
+        <a href="https://en.parisinfo.com/" target="_blank">Learn More</a>
+      </div>
+
+      <div class="vacation-card">
+        <img src="https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg" alt="Grand Canyon">
+        <h3>Grand Canyon, USA</h3>
+        <p>One of the world’s natural wonders with breathtaking views and hiking trails.</p>
+        <a href="https://www.nps.gov/grca/index.htm" target="_blank">Learn More</a>
+      </div>
+
+      <div class="vacation-card">
+        <img src="https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg" alt="Maldives">
+        <h3>Maldives</h3>
+        <p>Tropical paradise with white sandy beaches, turquoise waters, and luxury resorts.</p>
+        <a href="https://visitmaldives.com/en" target="_blank">Learn More</a>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== Internal JavaScript ===== -->
   <script>
@@ -197,12 +294,12 @@
           <h2>Beach Recommendations</h2>
           <div class="result-item">
             <h3>Bondi Beach, Australia</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Bondi_Beach.jpg" alt="Bondi Beach">
+            <img src="https://images.pexels.com/photos/459301/pexels-photo-459301.jpeg" alt="Bondi Beach">
             <p>Famous for surfing and golden sands.</p>
           </div>
           <div class="result-item">
             <h3>Copacabana Beach, Brazil</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Copacabana_Beach_Rio_de_Janeiro.jpg" alt="Copacabana Beach">
+            <img src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg" alt="Copacabana Beach">
             <p>A lively beach with vibrant nightlife.</p>
           </div>
         `;
@@ -211,12 +308,12 @@
           <h2>Temple Recommendations</h2>
           <div class="result-item">
             <h3>Angkor Wat, Cambodia</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Angkor_Wat_temple.jpg" alt="Angkor Wat">
+            <img src="https://images.pexels.com/photos/2614818/pexels-photo-2614818.jpeg" alt="Angkor Wat">
             <p>One of the largest religious monuments in the world.</p>
           </div>
           <div class="result-item">
             <h3>Kashi Vishwanath Temple, India</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Kashi_Vishwanath_Temple.jpg" alt="Kashi Vishwanath">
+            <img src="https://images.pexels.com/photos/1612510/pexels-photo-1612510.jpeg" alt="Kashi Vishwanath">
             <p>Dedicated to Lord Shiva and located in Varanasi.</p>
           </div>
         `;
@@ -226,12 +323,12 @@
           <h2>Toronto, Canada</h2>
           <div class="result-item">
             <h3>CN Tower</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/CN_Tower_Toronto.jpg" alt="CN Tower">
+            <img src="https://images.pexels.com/photos/356830/pexels-photo-356830.jpeg" alt="CN Tower">
             <p>One of the tallest towers in the world offering panoramic views.</p>
           </div>
           <div class="result-item">
             <h3>Royal Ontario Museum</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Royal_Ontario_Museum.jpg" alt="Royal Ontario Museum">
+            <img src="https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg" alt="Royal Ontario Museum">
             <p>A major museum for world culture and natural history.</p>
           </div>
           <p class="time">Current local time: ${localTime}</p>
